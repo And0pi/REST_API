@@ -24,7 +24,7 @@ API REST para que un pequeño negocio registre productos, los organice en catego
    dotnet run
    ```
    En desarrollo, la base de datos y las tablas se crean solas al arrancar (`BaseDatos:AplicarMigracionesAlIniciar`).
-   En producción aplica las migraciones a mano: `dotnet tool restore` y `dotnet ef database update`.
+  En producción aplica las migraciones a mano: `dotnet tool restore` y `dotnet ef database update --project InfraestructuraDatos/InfraestructuraDatos.csproj --startup-project API_REST.csproj`.
 
 3. Abre http://localhost:5259 para ver la documentación interactiva (Scalar). Solo está disponible en desarrollo.
 
@@ -82,16 +82,19 @@ Todas las respuestas de error usan el formato estándar *ProblemDetails* (RFC 94
 }
 ```
 
-## Estructura
+## Arquitectura
 
 ```
-Program.cs                 Configuración: base de datos, JSON, errores, CORS, OpenAPI
-Models/                    Entidades: Categoria, Producto, MovimientoInventario
-Data/                      DbContext y migraciones de EF Core
-Dtos/                      Contratos de entrada/salida con sus validaciones
-Endpoints/                 Rutas de categorías, productos y movimientos
-Infraestructura/           Filtro de validación y manejador global de errores
+Dominio/                    Entidades y reglas centrales; no depende de infraestructura
+Aplicacion/                 Casos de uso y puertos de persistencia; depende de Dominio
+InfraestructuraDatos/       Adaptadores EF Core, PostgreSQL y migraciones
+Endpoints/                  Adaptadores HTTP que invocan casos de uso
+Dtos/                       Contratos HTTP y validaciones de entrada (incluidos en Aplicación)
+Data/                       DbContext y migraciones (incluidos en InfraestructuraDatos)
+Program.cs                  Composition root, middleware, CORS y OpenAPI
 ```
+
+Las dependencias apuntan hacia el núcleo: la API e InfraestructuraDatos dependen de Aplicación, y Aplicación depende de Dominio. Los casos de uso definen los puertos que implementa InfraestructuraDatos.
 
 ## CORS
 

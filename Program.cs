@@ -1,17 +1,16 @@
 using System.Text.Json.Serialization;
-using API_REST.Data;
 using API_REST.Endpoints;
 using API_REST.Infraestructura;
-using Microsoft.EntityFrameworkCore;
+using API_REST.Aplicacion;
+using API_REST.InfraestructuraDatos;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var cadenaConexion = builder.Configuration.GetConnectionString("Inventario")
-    ?? throw new InvalidOperationException("Falta la cadena de conexión 'ConnectionStrings:Inventario'.");
-
-builder.Services.AddDbContext<InventarioDbContext>(opciones =>
-    opciones.UseNpgsql(cadenaConexion).UseSnakeCaseNamingConvention());
+builder.Services.AddScoped<ICasosDeUsoCategorias, CasosDeUsoCategorias>();
+builder.Services.AddScoped<ICasosDeUsoProductos, CasosDeUsoProductos>();
+builder.Services.AddScoped<ICasosDeUsoMovimientos, CasosDeUsoMovimientos>();
+builder.Services.AddInfraestructura(builder.Configuration);
 
 // Enums como texto ("Entrada", "Salida"...) y sin aceptar números.
 builder.Services.ConfigureHttpJsonOptions(opciones =>
@@ -20,7 +19,6 @@ builder.Services.ConfigureHttpJsonOptions(opciones =>
 // JSON mal formado o parámetros inválidos llegan al manejador de errores en lugar de dar un 400 vacío.
 builder.Services.Configure<RouteHandlerOptions>(opciones => opciones.ThrowOnBadRequest = true);
 builder.Services.AddProblemDetails();
-builder.Services.AddExceptionHandler<ManejadorErrores>();
 
 builder.Services.AddOpenApi();
 
@@ -48,10 +46,7 @@ if (app.Environment.IsDevelopment())
 }
 
 if (app.Configuration.GetValue("BaseDatos:AplicarMigracionesAlIniciar", false))
-{
-    using var scope = app.Services.CreateScope();
-    await scope.ServiceProvider.GetRequiredService<InventarioDbContext>().Database.MigrateAsync();
-}
+    await app.Services.AplicarMigracionesAsync();
 
 app.MapCategorias();
 app.MapProductos();

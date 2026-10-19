@@ -1,7 +1,9 @@
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Npgsql;
 
 namespace API_REST.Infraestructura;

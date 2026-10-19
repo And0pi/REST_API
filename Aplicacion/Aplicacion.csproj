@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Dominio/Dominio.csproj" />
+    <Compile Include="../Dtos/**/*.cs" Link="Contratos/%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+</Project>
