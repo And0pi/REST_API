@@ -28,6 +28,16 @@ API REST para que un pequeño negocio registre productos, los organice en catego
 
 3. Abre http://localhost:5259 para ver la documentación interactiva (Scalar). Solo está disponible en desarrollo.
 
+## Pruebas
+
+Ejecuta la suite automatizada con:
+
+```sh
+dotnet test REST_API.sln
+```
+
+Las pruebas unitarias de Aplicación no requieren PostgreSQL y cubren las reglas principales de movimientos de inventario.
+
 ## Endpoints
 
 | Método | Ruta | Descripción |
