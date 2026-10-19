@@ -1,0 +1,9 @@
+/workspaces/REST_API/obj/Release/net9.0/API_REST.csproj.AssemblyReference.cache
+/workspaces/REST_API/obj/Release/net9.0/rpswa.dswa.cache.json
+/workspaces/REST_API/obj/Release/net9.0/API_REST.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/REST_API/obj/Release/net9.0/API_REST.AssemblyInfoInputs.cache
+/workspaces/REST_API/obj/Release/net9.0/API_REST.AssemblyInfo.cs
+/workspaces/REST_API/obj/Release/net9.0/API_REST.csproj.CoreCompileInputs.cache
+/workspaces/REST_API/obj/Release/net9.0/API_REST.MvcApplicationPartsAssemblyInfo.cs
+/workspaces/REST_API/obj/Release/net9.0/API_REST.MvcApplicationPartsAssemblyInfo.cache
+/workspaces/REST_API/obj/Release/net9.0/API_REST.sourcelink.json
