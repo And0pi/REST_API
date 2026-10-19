@@ -1,0 +1,12 @@
+/workspaces/REST_API/Dominio/bin/Debug/net9.0/Dominio.deps.json
+/workspaces/REST_API/Dominio/bin/Debug/net9.0/Dominio.dll
+/workspaces/REST_API/Dominio/bin/Debug/net9.0/Dominio.pdb
+/workspaces/REST_API/Dominio/obj/Debug/net9.0/Dominio.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/REST_API/Dominio/obj/Debug/net9.0/Dominio.AssemblyInfoInputs.cache
+/workspaces/REST_API/Dominio/obj/Debug/net9.0/Dominio.AssemblyInfo.cs
+/workspaces/REST_API/Dominio/obj/Debug/net9.0/Dominio.csproj.CoreCompileInputs.cache
+/workspaces/REST_API/Dominio/obj/Debug/net9.0/Dominio.sourcelink.json
+/workspaces/REST_API/Dominio/obj/Debug/net9.0/Dominio.dll
+/workspaces/REST_API/Dominio/obj/Debug/net9.0/refint/Dominio.dll
+/workspaces/REST_API/Dominio/obj/Debug/net9.0/Dominio.pdb
+/workspaces/REST_API/Dominio/obj/Debug/net9.0/ref/Dominio.dll

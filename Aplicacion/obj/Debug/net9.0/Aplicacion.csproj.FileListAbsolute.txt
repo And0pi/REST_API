@@ -1,0 +1,16 @@
+/workspaces/REST_API/Aplicacion/bin/Debug/net9.0/Aplicacion.deps.json
+/workspaces/REST_API/Aplicacion/bin/Debug/net9.0/Aplicacion.dll
+/workspaces/REST_API/Aplicacion/bin/Debug/net9.0/Aplicacion.pdb
+/workspaces/REST_API/Aplicacion/bin/Debug/net9.0/Dominio.dll
+/workspaces/REST_API/Aplicacion/bin/Debug/net9.0/Dominio.pdb
+/workspaces/REST_API/Aplicacion/obj/Debug/net9.0/Aplicacion.csproj.AssemblyReference.cache
+/workspaces/REST_API/Aplicacion/obj/Debug/net9.0/Aplicacion.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/REST_API/Aplicacion/obj/Debug/net9.0/Aplicacion.AssemblyInfoInputs.cache
+/workspaces/REST_API/Aplicacion/obj/Debug/net9.0/Aplicacion.AssemblyInfo.cs
+/workspaces/REST_API/Aplicacion/obj/Debug/net9.0/Aplicacion.csproj.CoreCompileInputs.cache
+/workspaces/REST_API/Aplicacion/obj/Debug/net9.0/Aplicacion.sourcelink.json
+/workspaces/REST_API/Aplicacion/obj/Debug/net9.0/Aplicacion.csproj.Up2Date
+/workspaces/REST_API/Aplicacion/obj/Debug/net9.0/Aplicacion.dll
+/workspaces/REST_API/Aplicacion/obj/Debug/net9.0/refint/Aplicacion.dll
+/workspaces/REST_API/Aplicacion/obj/Debug/net9.0/Aplicacion.pdb
+/workspaces/REST_API/Aplicacion/obj/Debug/net9.0/ref/Aplicacion.dll
