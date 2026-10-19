@@ -1,0 +1,114 @@
+@host = http://localhost:5259/api
+
+### ---------- Categorías ----------
+
+### Crear categoría
+POST {{host}}/categorias
+Content-Type: application/json
+
+{
+  "nombre": "Bebidas",
+  "descripcion": "Refrescos y jugos"
+}
+
+### Listar categorías
+GET {{host}}/categorias
+
+### Actualizar categoría
+PUT {{host}}/categorias/1
+Content-Type: application/json
+
+{
+  "nombre": "Bebidas frías"
+}
+
+### Eliminar categoría (sus productos quedan sin categoría)
+DELETE {{host}}/categorias/1
+
+### ---------- Productos ----------
+
+### Registrar producto (stockInicial crea una entrada automáticamente)
+POST {{host}}/productos
+Content-Type: application/json
+
+{
+  "sku": "COCA-500",
+  "nombre": "Coca-Cola 500ml",
+  "descripcion": "Botella PET",
+  "precio": 2.50,
+  "stockInicial": 24,
+  "categoriaId": 1
+}
+
+### Consultar producto por id
+GET {{host}}/productos/1
+
+### Listar con paginación
+GET {{host}}/productos?pagina=1&tamanoPagina=20
+
+### Buscar por nombre o SKU, filtrar por categoría
+GET {{host}}/productos?buscar=coca&categoriaId=1
+
+### Productos con stock bajo (≤ 5 unidades)
+GET {{host}}/productos?stockMaximo=5
+
+### Incluir desactivados
+GET {{host}}/productos?incluirInactivos=true
+
+### Actualizar nombre, precio, descripción y categoría
+PUT {{host}}/productos/1
+Content-Type: application/json
+
+{
+  "nombre": "Coca-Cola 500 ml",
+  "descripcion": "Botella PET retornable",
+  "precio": 2.75,
+  "categoriaId": 1
+}
+
+### Desactivar producto
+DELETE {{host}}/productos/1
+
+### Reactivar producto
+POST {{host}}/productos/1/activar
+
+### Eliminar definitivamente (solo si no tiene movimientos)
+DELETE {{host}}/productos/1?permanente=true
+
+### ---------- Movimientos de inventario ----------
+
+### Entrada (compra a proveedor)
+POST {{host}}/productos/1/movimientos
+Content-Type: application/json
+
+{
+  "tipo": "Entrada",
+  "cantidad": 10,
+  "motivo": "Compra proveedor"
+}
+
+### Salida (venta)
+POST {{host}}/productos/1/movimientos
+Content-Type: application/json
+
+{
+  "tipo": "Salida",
+  "cantidad": 3,
+  "motivo": "Venta"
+}
+
+### Ajuste (fija el stock al conteo físico)
+POST {{host}}/productos/1/movimientos
+Content-Type: application/json
+
+{
+  "tipo": "Ajuste",
+  "cantidad": 30,
+  "motivo": "Inventario mensual"
+}
+
+### Historial de un producto
+GET {{host}}/productos/1/movimientos
+
+### Todos los movimientos, filtrados
+GET {{host}}/movimientos?tipo=Salida&desde=2026-10-01&hasta=2026-10-31&pagina=1&tamanoPagina=50
